@@ -1,0 +1,8 @@
+page-home {
+
+}
+
+.image-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minxmax(100xp,1fr));
+}

@@ -1,0 +1,43 @@
+PODS:
+  - Capacitor (1.0.0-alpha.39):
+    - CapacitorCordova (= 1.0.0-alpha.39)
+    - GCDWebServer (~> 3.0)
+  - CapacitorCordova (1.0.0-alpha.39)
+  - CapacitorImageCache (0.0.7):
+    - Capacitor
+    - SDWebImage (~> 4.0)
+  - GCDWebServer (3.4.2):
+    - GCDWebServer/Core (= 3.4.2)
+  - GCDWebServer/Core (3.4.2)
+  - SDWebImage (4.4.1):
+    - SDWebImage/Core (= 4.4.1)
+  - SDWebImage/Core (4.4.1)
+
+DEPENDENCIES:
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - CapacitorImageCache (from `../../node_modules/capacitor-image-cache`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GCDWebServer
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorImageCache:
+    :path: "../../node_modules/capacitor-image-cache"
+
+SPEC CHECKSUMS:
+  Capacitor: 694bd651f06ece975ddf33d78d012a0d0fbece57
+  CapacitorCordova: 1ce96e3c67c9b90e850e563798255268c5a8984b
+  CapacitorImageCache: b2d7a5bae8121a47cdc93584bf680a30ea2f4960
+  GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+
+PODFILE CHECKSUM: ff1f656eca4355433b2df67a912435d55b3eaf4b
+
+COCOAPODS: 1.5.3

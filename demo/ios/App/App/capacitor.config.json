@@ -1,0 +1,6 @@
+{
+  "appId": "com.github.triniwiz.imagecachedemo",
+  "appName": "ImageCacheDemo",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
