@@ -23,7 +23,7 @@ public class ImageCachePlugin: CAPPlugin {
 
             }, completed: { (image, data, error, type, finished, completedUrl) in
 
-                if(image == nil || error != nil || data == nil){
+                if(image == nil && error != nil && data == nil){
                     call.reject(error!.localizedDescription)
                 }else if(finished && completedUrl != nil ){
                     print(type == SDImageCacheType.disk)
@@ -80,8 +80,8 @@ public class ImageCachePlugin: CAPPlugin {
         })
 
     }
-    
-    
+
+
     @objc func clear(_ call: CAPPluginCall) {
         manager?.imageCache?.clearMemory()
     }

@@ -15,8 +15,7 @@
   <div class="image-list">
     <div *ngFor="let item of items">
       <p>Url {{item.url}}</p>
-      <st-cached-image [src]="item.url"></st-cached-image>
+      <cached-image [src]="item.url"></cached-image>
     </div>
-
   </div>
 </ion-content>

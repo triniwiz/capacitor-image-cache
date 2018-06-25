@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import 'st-cached-image/dist/cached-image';
+import { CachedImageModule } from '../ng-cached-image/cached-image.module';
 @NgModule({
   declarations: [
     MyApp,
@@ -14,7 +15,8 @@ import 'st-cached-image/dist/cached-image';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CachedImageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

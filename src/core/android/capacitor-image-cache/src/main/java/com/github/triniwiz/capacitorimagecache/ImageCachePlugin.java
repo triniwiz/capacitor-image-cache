@@ -79,7 +79,6 @@ public class ImageCachePlugin extends Plugin {
 
                 ImageRequest request = ImageRequestBuilder.fromRequest(ImageRequest.fromUri(src))
                         .setLowestPermittedRequestLevel(ImageRequest.RequestLevel.FULL_FETCH)
-                        //.setResizeOptions(new ResizeOptions(100, 100))
                         .build();
 
                 ImagePipeline imagePipeline = Fresco.getImagePipeline();
