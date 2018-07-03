@@ -26,9 +26,6 @@ public class ImageCachePlugin: CAPPlugin {
                 if(image == nil && error != nil && data == nil){
                     call.reject(error!.localizedDescription)
                 }else if(finished && completedUrl != nil ){
-                    print(type == SDImageCacheType.disk)
-                    print(type == SDImageCacheType.memory)
-                    print(type == SDImageCacheType.none)
                     if(type == SDImageCacheType.disk){
                         DispatchQueue.main.async {
                         let key = self.manager?.cacheKey(for: completedUrl)
