@@ -1,6 +1,6 @@
 {
   "name": "capacitor-image-cache",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
