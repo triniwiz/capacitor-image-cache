@@ -1,7 +1,6 @@
 import Foundation
 import Capacitor
 import SDWebImage
-import  GCDWebServer
 let KEY = "_CAP_IMAGE_CACHE_"
 typealias JSObject = [String:Any]
 @objc(ImageCachePlugin)

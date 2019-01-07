@@ -2,5 +2,8 @@
   "appId": "com.github.triniwiz.imagecachedemo",
   "appName": "ImageCacheDemo",
   "bundledWebRuntime": false,
-  "webDir": "www"
+  "webDir": "www",
+  "ios": {
+    "minVersion": "11.0"
+  }
 }
