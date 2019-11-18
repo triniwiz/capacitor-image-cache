@@ -73,7 +73,7 @@ public class ImageCachePlugin extends Plugin {
 
             final Uri url = Uri.parse(src);
             if (isImageDownloaded(url)) {
-                obj.put("value", FileUtils.getPortablePath(getContext(), Uri.fromFile(getCachedImageOnDisk(url))));
+                obj.put("value", FileUtils.getPortablePath(getContext(), bridge.getLocalUrl(), Uri.fromFile(getCachedImageOnDisk(url))));
                 call.resolve(obj);
             } else {
 
@@ -91,7 +91,7 @@ public class ImageCachePlugin extends Plugin {
                         }
                         if (dataSource.isFinished()) {
                             if (isImageDownloaded(url)) {
-                                obj.put("value", FileUtils.getPortablePath(getContext(), Uri.fromFile(getCachedImageOnDisk(url))));
+                                obj.put("value", FileUtils.getPortablePath(getContext(), bridge.getLocalUrl(), Uri.fromFile(getCachedImageOnDisk(url))));
                                 call.resolve(obj);
                             }
                             dataSource.close();
