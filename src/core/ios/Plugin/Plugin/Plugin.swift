@@ -30,7 +30,7 @@ public class ImageCachePlugin: CAPPlugin {
                         let key = self.manager?.cacheKey(for: completedUrl)
                         let source = self.manager?.imageCache?.defaultCachePath(forKey: key)
                         var obj = JSObject()
-                        obj["value"] = CAPFileManager.getPortablePath(uri: URL.init(string: source!));
+                        obj["value"] = CAPFileManager.getPortablePath(host: self.bridge!.getLocalUrl(), uri: URL.init(string: source!));
                         call.resolve(obj)
                         }
                     }else{
@@ -39,7 +39,7 @@ public class ImageCachePlugin: CAPPlugin {
                                 let key = self.manager?.cacheKey(for: completedUrl)
                                 let source = self.manager?.imageCache?.defaultCachePath(forKey: key)
                                 var obj = JSObject()
-                                obj["value"] = CAPFileManager.getPortablePath(uri: URL.init(string: source!));
+                                obj["value"] = CAPFileManager.getPortablePath(host: self.bridge!.getLocalUrl(), uri: URL.init(string: source!));
                                 call.resolve(obj)
                             }
                         })
