@@ -9,4 +9,5 @@ export interface IImageCache {
   hasItem(options: { src: string }):Promise<{value: boolean}>;
   clearItem(options: { src: string }):Promise<{value: boolean}>;
   clear():Promise<{value: boolean}>;
+  saveImage(options: { src: string }):Promise<void>;
 }

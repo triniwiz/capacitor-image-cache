@@ -1,6 +1,7 @@
 import Foundation
 import Capacitor
 import SDWebImage
+import Photos
 let KEY = "_CAP_IMAGE_CACHE_"
 typealias JSObject = [String:Any]
 @objc(ImageCachePlugin)
@@ -80,5 +81,47 @@ public class ImageCachePlugin: CAPPlugin {
 
     @objc func clear(_ call: CAPPluginCall) {
         manager?.imageCache?.clearMemory()
+    }
+    
+    @objc func saveImage(_ call: CAPPluginCall) {
+        let src = call.getString("src") ?? ""
+        if(src.contains("http:") || src.contains("https:")) {
+            let image = SDImageCache.shared().imageFromDiskCache(forKey: src)
+            if (image != nil) {
+                checkAuthorization(allowed: {
+                    // Add it to the photo library.
+                    PHPhotoLibrary.shared().performChanges({
+                        PHAssetChangeRequest.creationRequestForAsset(from: image!)
+                    }, completionHandler: {success, error in
+                        if !success {
+                            call.reject("Unable to save image to camera poll", error)
+                        } else {
+                            call.resolve()
+                        }
+                    })
+                }, notAllowed: {
+                    call.reject("Access to photos not allowed by user")
+                })
+            } else {
+                call.reject("Image is not in cache")
+            }
+        } else {
+            call.reject("Must provide src")
+        }
+    }
+    
+    func checkAuthorization(allowed: @escaping () -> Void, notAllowed: @escaping () -> Void) {
+        let status = PHPhotoLibrary.authorizationStatus()
+        if status == PHAuthorizationStatus.authorized {
+            allowed()
+        } else {
+            PHPhotoLibrary.requestAuthorization({ (newStatus) in
+                if newStatus == PHAuthorizationStatus.authorized {
+                    allowed()
+                } else {
+                    notAllowed()
+                }
+            })
+        }
     }
 }
