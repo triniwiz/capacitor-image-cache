@@ -1,6 +1,7 @@
 import Foundation
 import Capacitor
 import SDWebImage
+import Photos
 let KEY = "_CAP_IMAGE_CACHE_"
 typealias JSObject = [String:Any]
 @objc(ImageCachePlugin)
@@ -80,5 +81,51 @@ public class ImageCachePlugin: CAPPlugin {
 
     @objc func clear(_ call: CAPPluginCall) {
         manager?.imageCache?.clearMemory()
+    }
+    
+    @objc func saveImage(_ call: CAPPluginCall) {
+        let src = call.getString("src") ?? ""
+        if(src.contains("http:") || src.contains("https:")) {
+            let url = URL.init(string: src )
+            self.manager?.loadImage(with: url, options: SDWebImageOptions.fromCacheOnly, progress: { (receivedSize, expectedSize, path) in
+
+            }, completed: { (image, data, error, type, finished, completedUrl) in
+                if(image == nil && error != nil && data == nil){
+                    call.reject(error!.localizedDescription)
+                }else if(finished && completedUrl != nil ){
+                    self.checkAuthorization(allowed: {
+                        // Add it to the photo library.
+                        PHPhotoLibrary.shared().performChanges({
+                            PHAssetChangeRequest.creationRequestForAsset(from: image!)
+                        }, completionHandler: {success, error in
+                            if !success {
+                                call.reject("Unable to save image to camera poll", error)
+                            } else {
+                                call.resolve()
+                            }
+                        })
+                    }, notAllowed: {
+                        call.reject("Access to photos not allowed by user")
+                    })
+                }
+            })
+        } else {
+            call.reject("src must use an http or https scheme")
+        }
+    }
+    
+    func checkAuthorization(allowed: @escaping () -> Void, notAllowed: @escaping () -> Void) {
+        let status = PHPhotoLibrary.authorizationStatus()
+        if status == PHAuthorizationStatus.authorized {
+            allowed()
+        } else {
+            PHPhotoLibrary.requestAuthorization({ (newStatus) in
+                if newStatus == PHAuthorizationStatus.authorized {
+                    allowed()
+                } else {
+                    notAllowed()
+                }
+            })
+        }
     }
 }

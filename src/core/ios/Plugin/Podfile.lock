@@ -15,7 +15,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Capacitor
     - CapacitorCordova
     - GCDWebServer
@@ -27,6 +27,6 @@ SPEC CHECKSUMS:
   GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
   SDWebImage: b534502786e43dde36dfcaee89356fe6df30e203
 
-PODFILE CHECKSUM: 5b40114608044b9fbe8d64e6a24d542d85584d46
+PODFILE CHECKSUM: 90294a6e9a81f834598df837d887565e326ff8ff
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

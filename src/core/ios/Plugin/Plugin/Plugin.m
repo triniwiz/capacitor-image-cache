@@ -8,4 +8,5 @@ CAP_PLUGIN(ImageCachePlugin, "ImageCachePlugin",
            CAP_PLUGIN_METHOD(hasItem, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(clearItem, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(clear, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(saveImage, CAPPluginReturnPromise);
 )

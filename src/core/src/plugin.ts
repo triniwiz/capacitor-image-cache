@@ -19,4 +19,8 @@ export class ImageCache implements IImageCache {
     get(options: { src: string, overwrite?: boolean }): Promise<{ value: string }> {
         return ImageCachePlugin.get(options);
     }
+
+    saveImage(options: { src: string }): Promise<void> {
+        return ImageCachePlugin.saveImage(options);
+    }
 }
