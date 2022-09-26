@@ -22,7 +22,7 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@capacitor/android": "^1.0.0-beta.0",
-    "@capacitor/cli": "^1.0.0-beta.0",
+    "@capacitor/cli": "^1.5.3",
     "@capacitor/core": "^1.0.0-beta.0",
     "@capacitor/ios": "^1.0.0-beta.0",
     "@ionic-native/core": "4.7.0",
