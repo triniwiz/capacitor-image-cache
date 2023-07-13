@@ -99,7 +99,7 @@ public class ImageCachePlugin: CAPPlugin {
                             PHAssetChangeRequest.creationRequestForAsset(from: image!)
                         }, completionHandler: {success, error in
                             if !success {
-                                call.reject("Unable to save image to camera poll", error)
+                                call.reject("Unable to save image to camera poll", error?.localizedDescription)
                             } else {
                                 call.resolve()
                             }

@@ -1,32 +1,26 @@
 PODS:
-  - Capacitor (0.0.113):
-    - CapacitorCordova (= 0.0.113)
-    - GCDWebServer (~> 3.0)
-  - CapacitorCordova (0.0.113)
-  - GCDWebServer (3.4.2):
-    - GCDWebServer/Core (= 3.4.2)
-  - GCDWebServer/Core (3.4.2)
-  - SDWebImage (4.4.0):
-    - SDWebImage/Core (= 4.4.0)
-  - SDWebImage/Core (4.4.0)
+  - Capacitor (3.7.0):
+    - CapacitorCordova
+  - CapacitorCordova (3.7.0)
+  - SDWebImage (4.4.8):
+    - SDWebImage/Core (= 4.4.8)
+  - SDWebImage/Core (4.4.8)
 
 DEPENDENCIES:
   - Capacitor
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Capacitor
     - CapacitorCordova
-    - GCDWebServer
     - SDWebImage
 
 SPEC CHECKSUMS:
-  Capacitor: b37060b0b2685257bedbc69e49a54a74ef30fb9a
-  CapacitorCordova: a923a32bc7ad5f1f3d69664ca86ff69580343ed3
-  GCDWebServer: 8d67ee9f634b4bb91eb4b8aee440318a5fc6debd
-  SDWebImage: b534502786e43dde36dfcaee89356fe6df30e203
+  Capacitor: 747a1e47077e8f82abf2209867c440d7366ad68c
+  CapacitorCordova: e6b42a8e8d5986c1eb8f02ac0be205fafc32ac33
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
 
-PODFILE CHECKSUM: 90294a6e9a81f834598df837d887565e326ff8ff
+PODFILE CHECKSUM: f93405deaf0b155a462def9d2cfc3d2de2939dc4
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.11.3
